@@ -10,8 +10,21 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        List(0 ..< 6) { item in
-            ListItem()
+        VStack {
+//            Path() { path in
+//                path.move(to: CGPoint(x: 20, y: 20))
+//                path.addLine(to: CGPoint(x: 300, y: 20))
+//                path.addLine(to: CGPoint(x: 300, y: 200))
+//                path.addLine(to: CGPoint(x: 20, y: 200))
+//                path.closeSubpath()
+//            }
+//            .stroke(Color.green, lineWidth: 10)
+            
+            HStack {
+                VerticalBar()
+                VerticalBar()
+                VerticalBar()
+            }
         }
     }
 }
@@ -25,13 +38,23 @@ struct ContentView_Previews: PreviewProvider {
 struct ListItem: View {
     var body: some View {
         HStack {
-            Text("Hello, World!")
+            Text("Hello, World!!!")
                 .fontWeight(.bold)
-                .font(.largeTitle)
+                .font(.system(size: 40))
+                .font(.headline)
             Spacer()
 
             Image(systemName: "bag.fill.badge.plus")
                 .foregroundColor(.red)
+                .font(.system(size: 40))
         }
+    }
+}
+
+struct VerticalBar: View {
+    var body: some View {
+        RoundedRectangle(cornerRadius: 30)
+            .fill(Color.green)
+            .frame(width: 50, height: 250)
     }
 }
