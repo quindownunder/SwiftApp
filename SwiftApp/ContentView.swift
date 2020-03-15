@@ -20,11 +20,12 @@ struct ContentView: View {
 //            }
 //            .stroke(Color.green, lineWidth: 10)
             
-            HStack {
-                VerticalBar()
-                VerticalBar()
-                VerticalBar()
+            HStack(alignment: .bottom) {
+                VerticalBar(barHeight: 300, monthLabel: "Jan")
+                VerticalBar(barHeight: 350, monthLabel: "Feb")
+                VerticalBar(barHeight: 500, monthLabel: "Mar")
             }
+        
         }
     }
 }
@@ -52,9 +53,17 @@ struct ListItem: View {
 }
 
 struct VerticalBar: View {
+    
+    var barHeight:  CGFloat
+    var monthLabel: String
+    
     var body: some View {
-        RoundedRectangle(cornerRadius: 30)
-            .fill(Color.green)
-            .frame(width: 50, height: 250)
+        VStack {
+            RoundedRectangle(cornerRadius: 30)
+                .fill(Color.green)
+                .frame(width: 50, height: barHeight)
+            Text(monthLabel)
+                .font(.headline)
+        }
     }
 }
